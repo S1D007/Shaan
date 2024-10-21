@@ -1,6 +1,5 @@
 import axios from "axios";
 import { create } from "zustand";
-import { socket } from "./app/display/page";
 import { API_URL, FQDN, SONG_LISTS } from "./constants";
 type Store = {
   currentIndex: number;
@@ -15,8 +14,6 @@ type Store = {
 
   photos: { song: string; photo: string }[];
   fetchPhotos: (song: string) => Promise<void>;
-
-  changeCollageScreen: (song: string) => void;
 };
 
 const base64toBlob = (dataURI: string): Blob => {
@@ -68,10 +65,6 @@ export const useStore = create<Store>((set) => ({
       alert(e);
     }
   },
-  changeCollageScreen: (song) => {
-    socket.emit("message", song);
-  },
-
   photos: [],
   fetchPhotos: async (song) => {
     try {
