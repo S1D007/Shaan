@@ -1,4 +1,4 @@
-export const FQDN = "http://localhost:8000";
+export const FQDN = "https://api.gokapturehub.com";
 
 export const API_URL = `${FQDN}/collage-ranking`;
 
