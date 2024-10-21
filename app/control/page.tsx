@@ -1,7 +1,9 @@
 "use client"
-import { SONG_LISTS } from "@/constants";
+import { API_URL, SONG_LISTS } from "@/constants";
 import React from "react";
-import { socket } from "../display/page";
+import io from "socket.io-client";
+
+const socket = io(API_URL, { transports: ["websocket"] });
 
 function Page() {
   return (

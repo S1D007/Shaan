@@ -7,7 +7,7 @@ import io from "socket.io-client";
 // import { ReactPhotoCollage } from "react-photo-collage";
 import { Gallery } from "react-grid-gallery";
 
-export const socket = io(API_URL, { transports: ["websocket"] });
+const socket = io(API_URL, { transports: ["websocket"] });
 
 function Page() {
   const { fetchPhotos, photos } = useStore();
