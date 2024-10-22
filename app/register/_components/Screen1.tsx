@@ -8,15 +8,15 @@ function Screen1() {
       className="h-screen flex items-center justify-center bg-cover"
       style={{ backgroundImage: `url('/screen1.png')` }}
     >
-      <div className="text-center text-white px-4 sm:px-6 md:px-8 lg:px-0 md:text-xl lg:text-2xl flex justify-center items-center flex-col space-y-16 md:space-y-32 lg:space-y-56">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium">
+      <div className="text-center text-white px-4 sm:px-6 md:px-8 lg:px-0 flex justify-center items-center flex-col space-y-12 sm:space-y-16 md:space-y-24 lg:space-y-32 xl:space-y-40">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight">
           Shaan Se Suno
         </h1>
         <button
           onClick={() => {
             setCurrentIndex(1);
           }}
-          className="w-48 sm:w-64 md:w-72 lg:w-80 h-12 sm:h-14 md:h-16 bg-blue-500 hover:bg-blue-600 text-white text-2xl sm:text-3xl md:text-4xl font-bold py-2 px-6 md:py-3 md:px-10 rounded-[40px]"
+          className="w-72 h-20  bg-blue-500 hover:bg-blue-600 text-white text-3xl font-bold py-2 px-4 md:py-3 md:px-8 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105"
         >
           LET'S START
         </button>
