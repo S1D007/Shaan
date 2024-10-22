@@ -4,14 +4,19 @@ import { API_URL } from "@/constants";
 import { useStore } from "@/store";
 import React, { useEffect } from "react";
 import io from "socket.io-client";
-// import { ReactPhotoCollage } from "react-photo-collage";
-import { Gallery } from "react-grid-gallery";
+import Gallery from "./_components/Gallery";
 
 const socket = io(API_URL, { transports: ["websocket"] });
 
+export type PhotoListType = {
+  src: string;
+  width: number;
+  height: number;
+};
+
 function Page() {
   const { fetchPhotos, photos } = useStore();
-  const [photosList, setPhotosList] = React.useState<any[]>([]);
+  const [photosList, setPhotosList] = React.useState<PhotoListType[]>([]);
 
   const handleMessage = (song: string) => {
     fetchPhotos(song);
@@ -26,13 +31,15 @@ function Page() {
   }, [fetchPhotos]);
 
   useEffect(() => {
-    const newPhotosList = photos.map((photo) => ({ src: photo.photo,  }));
+    const newPhotosList = photos.map((photo) => ({
+      src: photo.photo,
+      width: Math.floor(Math.random() * (200 - 100 + 1)) + 100,
+      height: 200,
+    }));
     setPhotosList(newPhotosList);
   }, [photos]);
 
-  return (
-    <Gallery images={photosList} />
-  );
+  return <Gallery images={photosList} />;
 }
 
 export default Page;
