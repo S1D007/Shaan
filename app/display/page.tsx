@@ -5,8 +5,8 @@ import { useStore } from "@/store";
 import React, { useEffect } from "react";
 import io from "socket.io-client";
 import Gallery from "./_components/Gallery";
-
 const socket = io(API_URL, { transports: ["websocket"] });
+import './display.css'
 
 export type PhotoListType = {
   src: string;
