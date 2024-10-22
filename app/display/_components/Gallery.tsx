@@ -6,9 +6,8 @@ import { PhotoListType } from "../page";
 export default function Gallery({ images }: { images: PhotoListType[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   let interval: NodeJS.Timeout;
-  let startInterval : NodeJS.Timeout
+  let startInterval: NodeJS.Timeout;
   const dir = useRef(1);
-  const isAnimationStarted = useRef(false);
 
   const startAutoScroll = () => {
     if (containerRef.current) {
@@ -27,17 +26,15 @@ export default function Gallery({ images }: { images: PhotoListType[] }) {
   useEffect(() => {
     const handleStartAnimation = () => {
       const container = containerRef.current;
-      if (container &&  container.scrollHeight - innerHeight > 75 && isAnimationStarted) {
+      if (container && container.scrollHeight - innerHeight > 75) {
         clearInterval(interval);
-        isAnimationStarted.current = true
         startAutoScroll();
-      }
-      else{
+      } else {
         clearInterval(interval);
       }
     };
 
-    startInterval = setInterval(handleStartAnimation, 100)
+    startInterval = setInterval(handleStartAnimation, 100);
 
     return () => {
       clearInterval(interval);
